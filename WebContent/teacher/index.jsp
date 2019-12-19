@@ -1,0 +1,127 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+<title>学生竞赛管理--教师端</title>
+<link rel="stylesheet" type="text/css" href="{$smarty.const.CSS_URL}/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="{$smarty.const.CSS_URL}/style.css">
+<style>
+.daan {
+  padding-top: 50px;
+  padding-bottom: 100px;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 100%;
+  background-color: #FFF;
+}
+</style>
+</head>
+<body style="background:#EFF1F5;">
+<div class="container-fluid" style="background:#FFF;">
+  <div class="row">
+    <div class="col-md-6" style="margin:10px 0;"> <a href="#" class="pull-left"><img src="{$smarty.const.IMG_URL}/logo.png"/></a> </div>
+    <div class="col-md-6" style="margin:10px 0;">
+      <ul class="list-unstyled list-inline pull-right">
+        <li>
+          <div class="btn-group">
+            <button type="button" class="btn btn-info"><span class="glyphicon glyphicon-user"></span> {$smarty.session.admin_name}</button>
+            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span> <span class="sr-only"></span> </button>
+            <ul class="dropdown-menu">
+              <li><a href=""><span class="glyphicon glyphicon-user"></span> 用户中心</a></li>
+              <li><a href="{$smarty.const.__MODULE__}/Jiaoshi/logout"><span class="glyphicon glyphicon-log-out"></span> 退出</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<nav class="navbar navbar-default  navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header"> <a href="#" class="navbar-brand">在线学习考试平台</a>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      <ul class="nav navbar-nav" style="margin-top:0px;">
+        <li class="active"><a href="{$smarty.const.__CONTROLLER__}/managestu/p/1"><span class="glyphicon glyphicon-folder-close"></span> 学生信息管理</a></li>
+        <li><a href="{$smarty.const.__CONTROLLER__}/managetea"><span class="glyphicon glyphicon-folder-open"></span> 教师信息管理</a></li>
+        <li><a href="{$smarty.const.__CONTROLLER__}/news"><span class="glyphicon glyphicon-user"></span> 发布公告</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid" style="margin-top:50px;margin-bottom:300px;">
+  <div class="rows">
+    <div class="col-md-3">
+      <div class="list-group nav nav-tabs"> <a class="list-group-item active" >学生信息管理</a> <a class="list-group-item" href="{$smarty.const.__CONTROLLER__}/managestu/p/1">信息预览</a> </div>
+    </div>
+    <div class="col-md-9">
+      <ol class="breadcrumb">
+        <li><a href="{$smarty.const.__CONTROLLER__}/managestu/p/1">学生信息管理</a></li>
+        <li class="active">信息预览</a></li>
+      </ol>
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table table-hover table-striped" style="background-color:#fff;">
+            <h3 class="text-center"><strong>学生信息预览</strong></h3>
+            <thead>
+              <tr class="success">
+                <th>账号</th>
+                <th>姓名</th>
+                <th>手机号</th>
+                <th>邮箱</th>
+                <th>学院</th>
+                <th>班级</th>
+                <th>注册时间</th>
+                <th>学生管理</th>
+              </tr>
+            </thead>
+            {foreach $list as $k=>$v}
+            <tbody style="background:#fff;">
+              <tr>
+                <td class="col-md-1">{$v.user_id}</td>
+                <td>{$v.user_name}</td>
+                <td>{$v.user_dianhua}</td>
+                <td>{$v.user_email}</td>
+                <td>{$v.user_xueyuan}</td>
+                <td>{$v.user_banji}</td>
+                <td>{$v.user_time}</td>
+                <td><a type="button" class="btn btn-danger" href="{U('stu_delete')}?user_id={$v.user_id}" onclick="return confirm('确定要删除吗？');">删除</a></td>
+              </tr>
+            {/foreach}
+            </tbody>
+            
+          </table>
+          {$page} </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<footer id="footer">
+  <div class="container">
+    <div class="col-md-4 col-xs-4">
+      <div class="pull-left"><img src="{$smarty.const.IMG_URL}/tel.jpg" width="28" height="28" class="img-responsive"/>联系我们：<span class="tel">15153070806</span></div>
+    </div>
+    <div class="col-md-4 col-xs-4">
+      <div class="text-center">
+        <p> 在线考试 || 电子作业 || 学习资源 || 优创论坛 </p>
+        <P> 在线学习考试平台 ©  2016 By youchuang </P>
+      </div>
+    </div>
+    <div class="col-md-2 col-xs-2">
+      <div class="pull-right"> <img src="{$smarty.const.IMG_URL}/weixin.png" alt="微信关注" width="30" height="27" class="img-responsive"/>微信关注 </div>
+    </div>
+    <div class="col-md-2 col-xs-2">
+      <div class="pull-left"> <img src="{$smarty.const.IMG_URL}/code.jpg" alt="扫描关注在线学习考试平台微信" width="102" height="102" class="img-responsive"/> </div>
+    </div>
+  </div>
+</footer>
+<script src="{$smarty.const.JS_URL}/jquery.min.js"></script> 
+<script src="{$smarty.const.JS_URL}/bootstrap3.0.3.min.js"></script>
+</body>
+</html>

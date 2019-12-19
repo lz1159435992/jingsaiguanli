@@ -9,7 +9,23 @@ public class Teacher {
 	private int t_id;
 	private String t_name;
 	private String t_password;
+	private String t_xueyuan;
+	private String t_email;
 	private int t_state;
+	
+	
+	public String getT_xueyuan() {
+		return t_xueyuan;
+	}
+	public void setT_xueyuan(String t_xueyuan) {
+		this.t_xueyuan = t_xueyuan;
+	}
+	public String getT_email() {
+		return t_email;
+	}
+	public void setT_email(String t_email) {
+		this.t_email = t_email;
+	}
 	public int getT_id() {
 		return t_id;
 	}

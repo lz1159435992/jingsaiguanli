@@ -11,16 +11,17 @@
 <meta name="description" content="学生竞赛管理">
 <meta name="keywords" content="学生竞赛管理">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/Bootstrap/css/bootstrap.min.css"/>
-
 <script src="${pageContext.request.contextPath}/js/jquery-1.11.3.js"></script> 
+<script src="${pageContext.request.contextPath}/js/register.js"></script>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/Bootstrap/css/style.css"/>
+
 </head>
 
 <body style="background:url(${pageContext.request.contextPath}/img/loginbg.jpg) no-repeat; width:100%;">
 <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
   <div class="container-fluid" style="margin-top:10px;">
     <div class="navbar-header pull-left"> <a href="#" class="navbar-brand"><strong>学生竞赛管理</strong></a></div>
-    <a type="button" class="btn btn-default pull-right" href="{$smarty.const.__MODULE__}/User/login"> <span class="glyphicon glyphicon-lock"></span> 登录 </a> </div>
+    <a type="button" class="btn btn-default pull-right" href="${pageContext.request.contextPath}/teacher/login.jsp"> <span class="glyphicon glyphicon-lock"></span> 登录 </a> </div>
 </nav>
 <div class="container" style="margin-top:200px;">
   <div class="row">
@@ -33,51 +34,57 @@
       <div class="row" style="margin-top:20px;">
         <div class="col-md-12">
         
-          <form  class="form-horizontal" role="form" action="{$smarty.const.__SELF__}" method="post" onsubmit="return check()">
-            <div class="form-group" style="margin:10px auto;">
-              <label for="user" class="col-md-3 control-label">学号</label>
-              <div class="col-md-9">
-                <input type="text" class="form-control" id="user" name="user_id" autofocus 
-                     required="required" placeholder="请输入学号"/>
-                <span style="color:red;">{$chongfu}</span> </div>
-            </div>
+          <form  class="form-horizontal" role="form" action="${pageContext.request.contextPath}/teacher?method=register" method="post" onsubmit="return check()">
+        
             <div class="form-group" style="margin:10px auto;">
               <label for="username" class="col-md-3 control-label">姓名</label>
               <div class="col-md-9">
-                <input type="text" class="form-control" id="username" name="user_name" autofocus 
+                <input type="text" class="form-control" id="t_name" name="t_name" autofocus 
                      required="required" placeholder="请输入姓名"/>
+                     <span id="t_name_span"></span> 
               </div>
+               
             </div>
             <div class="form-group" style="margin:10px auto;">
               <label for="pwd" class="col-md-3 control-label">密码</label>
               <div class="col-md-9">
-                <input type="password" class="form-control" id="pwd" name="user_pwd" autofocus 
+                <input type="password" class="form-control" id="pwd" name="t_password" autofocus 
                      required="required" placeholder="请输入密码"/>
               </div>
             </div>
             <div class="form-group" style="margin:10px auto;">
               <label for="qrpwd" class="col-md-3 control-label">确认密码</label>
               <div class="col-md-9">
-                <input type="password" class="form-control" id="qrpwd" name="user_pwd2" autofocus 
+                <input type="password" class="form-control" id="qrpwd" name="t_password2" autofocus 
                      required="required" placeholder="请再次输入密码"/>
+                     <span id="t_password_span"></span> 
               </div>
             </div>
             <div class="form-group" style="margin:10px auto;">
               <label for="email" class="col-md-3 control-label">邮箱</label>
               <div class="col-md-9">
-                <input type="email" class="form-control" id="email" name="user_email" autofocus 
+                <input type="email" class="form-control" id="email" name="t_email" autofocus 
                      required="required" placeholder="请输入邮箱"/>
               </div>
             </div>
+            
+              <div class="form-group" style="margin:10px auto;">
+              <label for="email" class="col-md-3 control-label">学院</label>
+              <div class="col-md-9">
+                <input type="text" class="form-control" id="email" name="t_xueyuan" autofocus 
+                     required="required" placeholder="请输入学院"/>
+              </div>
+            </div>
 
-            <div class="form-group col-xs-6 col-md-3" style="margin:10px auto;padding-right:0" >
+           <!--  <div class="form-group col-xs-6 col-md-3" style="margin:10px auto;padding-right:0" >
               <input type="text" name="captcha"  class="form-control" style="border-radius:0;float:left" required  placeholder="验证码"  >
             </div>
 
             <div class="form-group col-xs-6 col-md-4" style="margin:10px auto;padding-left: 0"; >
             <a href=""> <img id="yzm" src="{$smarty.const.__CONTROLLER__}/verifyImg" onclick="this.src='{$smarty.const.__CONTROLLER__}/verifyImg/'+Math.random()"  class="img-responsive" alt="验证码" title="点击更换"></a>
             <span style="color:red;">{$error1}</span> 
-            </div>
+            </div> -->
+            
             <div class="col-xs-12 text-center" style="margin:20px 0;">
               <button type="submit" class="btn btn-primary col-md-8 col-md-offset-2 col-xs-8 col-xs-offset-2">注册</button>
             </div>
@@ -109,18 +116,5 @@
     </div>
   </div>
 </footer>
-<script src="{$smarty.const.JS_URL}/jquery.min.js"></script> 
-<script src="{$smarty.const.JS_URL}/bootstrap3.0.3.min.js"></script>
-<script type="text/javascript">
-//验证表单
-function check(){
-  var pwd=document.getElementById('pwd');
-  if(pwd.value!=qrpwd.value){
-    alert('密码不一致，请重新输入');
-    pwd.select();
-    return false;
-  }
-}
-</script>
 </body>
 </html>
