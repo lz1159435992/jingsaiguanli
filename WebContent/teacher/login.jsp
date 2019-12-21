@@ -61,6 +61,10 @@
             
              </div>
             <div class="col-xs-12 text-center" style="margin-top:20px">
+            <tr>
+				<td><input type="radio" name="choice"value="teacher" style="width:20px;height:15px" checked="true">普通用户</td>
+				<td><input type="radio" name="choice"value="administrator" style="width:20px;height:15px">管理员</td>
+				</tr>
               <button type="submit" id="login_button" class="btn btn-primary col-xs-9 sub" style="font-size:15px">登 录</button>
             </div>
           </form>

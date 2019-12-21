@@ -1,2 +1,8 @@
 eclipse.preferences.version=1
-encoding//src/com/filter/EncodingFilter.java=UTF-8
+encoding//src/com/dao/TeacherDao.java=GBK
+encoding//src/com/domain/Teacher.java=GBK
+encoding//src/com/filter/EncodingFilter.java=GBK
+encoding//src/com/service/TeacherService.java=GBK
+encoding//src/com/utils/JDBCUtils2.java=GBK
+encoding//src/com/web/CheckImgServlet.java=GBK
+encoding//src/com/web/TeacherServlet.java=GBK
